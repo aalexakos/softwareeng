@@ -18,7 +18,7 @@ public abstract class User{
     public void setAge(int a) {
         this.age = a;
     }
-    public  getAge() {
+    public int  getAge() {
         return age;
     }
    
