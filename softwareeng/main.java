@@ -16,9 +16,13 @@ public class main {
         //System.out.println(myObj.getUsername()+" "+myObj.getPassword());
         myObj.connect();
         if(myObj.isStudent()){
-            User usr = new Student ();
-            usr.findUser(myObj.getUsername());
+            User stnt = new Student ();
+            stnt.findUser(myObj.getUsername());
         }
+        else {
+            User prof = new Professor ();
+            prof.findUser(myObj.getUsername());
+        }   
         scan.close();
         scan1.close();
 

@@ -38,6 +38,7 @@ public boolean connect(){
         }
         if (!isLoginSuccess) {
             System.out.println( "USERNAME/PASSWORD WRONG");
+            System.exit(0);
         }
         fr.close();
 
@@ -50,20 +51,29 @@ public boolean connect(){
 
     public boolean isStudent(){
         String faculty = "faculty",email;
-        FileReader fr = new FileReader("kappa.txt");
-        BufferedReader br = new BufferedReader(fr);
-        String line;
-        while ((line = br.readLine()) != null) {
-            email = line.split(" ")[4].toLowerCase();
-        if (email.contains(faculty)){
-            return false;
-        }
-        else    
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        }
+        boolean returnedValue=false;
+        try{
+            FileReader fr = new FileReader("kappa.txt");
+            BufferedReader br = new BufferedReader(fr);
+            String line;
+            while ((line = br.readLine()) != null) {
+                if(line.split(" ")[0].toLowerCase().equals(getUsername())){
+                    email = line.split(" ")[4].toLowerCase();
+                    if (email.contains(faculty)){
+                        returnedValue= false;
+                        break;
+                    }
+                    else    
+                        returnedValue= true;
+                        break;
+                }
+            }
+            fr.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return returnedValue;
+    
     }
 
 }

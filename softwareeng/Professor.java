@@ -3,12 +3,11 @@ package softwareeng;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
-public class Student extends User{
-    private int am;
-    
+public class Professor extends User{
+    private int id;
 
-    public int getAm(){
-        return am;
+    public int getId(){
+        return id;
     }
 
     public boolean findUser(String user){
@@ -26,8 +25,8 @@ public class Student extends User{
                     lastName = line.split(" ")[3].toLowerCase();
                     email = line.split(" ")[4].toLowerCase();
                     age = Integer.valueOf(line.split(" ")[5]);
-                    am = Integer.valueOf(line.split(" ")[6]);
-                    System.out.println( "this is a student \nname: "+name+"\nlast name: "+lastName+"\nemail: "+email+"\nage: "+age+"\nam: "+am) ;
+                    id = Integer.valueOf(line.split(" ")[6]);
+                    System.out.println( "this is a professor \nname: "+name+"\nlast name: "+lastName+"\nemail: "+email+"\nage: "+age+"\nid: "+id) ;
                     break;
                 } 
             }
