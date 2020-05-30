@@ -2,7 +2,10 @@ package softwareeng;
 import java.util.Scanner;
 
 public class main {
-
+    public static void display_menu_professor(){
+        System.out.println ( "1) New quiz\n2) View quizes \n3) exit" );
+        System.out.print ( "Selection: " );
+    }
 
     public static void main(String[] args) {
         
@@ -20,11 +23,31 @@ public class main {
             stnt.findUser(myObj.getUsername());
         }
         else {
-            User prof = new Professor ();
-            prof.findUser(myObj.getUsername());
+            while (true){
+                User prof = new Professor ();
+                prof.findUser(myObj.getUsername());
+                Scanner in = new Scanner ( System.in );
+        
+                display_menu_professor();
+                switch ( in.nextInt() ) {
+                case 1:
+                    ContactP cp = new ContactP();
+                    cp.createQuiz();
+                    break;
+                case 2:
+                ContactP cp1 = new ContactP();
+                    cp1.viewQuiz();
+                    break;
+                case 3:
+                    System.exit(0);
+                    break;
+                default:
+                    System.err.println ( "Unrecognized option" );
+                    break;
+                }
+            }
         }   
         scan.close();
         scan1.close();
-
       }
 }
