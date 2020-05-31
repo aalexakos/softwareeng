@@ -25,13 +25,5 @@ public class S_Multimedia extends Multimedia{
     public Strig chooseVid(){
         //epilogi video lecture.
     }
-
-    
-
-
-
-
-
-
     
 }
