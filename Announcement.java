@@ -1,47 +1,52 @@
 import java.time.LocalDate;
 public class Announcements{
-    public String aname;
-    public int aid;
+    protected String aname;
+    protected int aid;
     LocalDate myDate = LocalDate.now();
-    private myDate date;
+    protected myDate date;
+    protected String text;
     
 
-    public Announcements( String name,  int id,  myDate d) {
+    public Announcements( final String name,  final int id,  final myDate d, final String txt) {
         aname = name;
         aid = id;
         date = d;
+        text = txt;
     }
     
     public String getName(){
-        return name;
+        return String.format(name);
     }
 
     public int getId(){
         return id;
     }
+
+    public String getText(){
+        return String.format(text);
+    }
     
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

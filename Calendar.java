@@ -1,9 +1,12 @@
+import java.io.IOException;
+
 public abstract class Calendar {
 
     protected int day;
     protected int month;
     protected int year;
     protected String name;
+    protected int id;
     
     public Calendar(){
         
@@ -45,14 +48,21 @@ public abstract class Calendar {
         return year;
     }
 
-    public void setDay(final String na) {
+    public void setName(final String na) {
         this.name = na;
     }
 
-    public int getYear(){
+    public int getName(){
         return name;
     }
 
+    public void setId(int i){
+        id = i + 1;
+    }
+
+    public int getId(){
+        return id;
+    }
 
 
 }
