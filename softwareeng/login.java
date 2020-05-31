@@ -4,7 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 
 public class login{
-    private String username, password;
+     public static String username;
+     private String password;
 
     
     public login (String usr,  String pasw){
