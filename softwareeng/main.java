@@ -2,15 +2,32 @@ package softwareeng;
 import java.util.Scanner;
 
 public class main {
-    public static void display_menu_professor(){
-        System.out.println ( "1) New quiz\n2) View quizes \n3) Upload note \n4) Delete note \n5) View notes \n6) download note \n7)Rate a note \n8)Exit" );
-        System.out.print ( "Selection: " );
+
+    public static void display_contact_p(){
+        System.out.println ( "1) Neo quiz\n2) Provoli twn quizes");
+        System.out.print ( "Epilogh?: " );
+    }
+    public static void display_contact_s(){
+        System.out.println ( "1) Pare quiz\n2) Provoli quizes");
+        System.out.print ( "Epilogh?: " );
     }
 
-    public static void display_menu_student(){
-        System.out.println ( "1) Take quiz\n2) View quizes \n3) Upload note \n4) Delete my own note \n5) View notes \n7)download note \n8) Exit" );
-        System.out.print ( "Selection: " );
+    public static void display_notes_s(){
+        System.out.println ( "1) Anebase simeiwsh \n2) Diagrafi simeiwshs mou \n3) Provoli simeiwsewn");
+        System.out.print ( "Epilogh?: " );
     }
+
+    public static void display_notes_p(){
+        System.out.println ( "1) Anevase simeiwsi\n2) Diegrapse simeiwsi\n3) Provoli simeiwsis");
+        System.out.print ( "Epilogh?: " );
+    }
+
+    public static void display_menu(){
+        System.out.println ( "1) Simeiwseis \n2) Epikoinwnia \n3) Anakoinwseis \n4) Pokumesa \n5) Hmerologio \n6) Exit" );
+        System.out.print ( "Epilogh?: " );
+    }
+
+
 
     public static void main(String[] args) {
         
@@ -31,39 +48,28 @@ public class main {
                 prof.findUser(myObj.getUsername());
                 Scanner in = new Scanner ( System.in );
         
-                display_menu_student();
+                display_menu();
                 switch ( in.nextInt() ) {
                     case 1:
-                        
-                        //take quiz
+                        display_notes_p();
                         break;
                     case 2:
-                        ContactP cp1 = new ContactP();
-                        cp1.viewQuiz();
+                        display_contact_s();
                         break;
                     case 3:
-                        notesP np = new notesP();
-                        np.uploadNote();
+                        
                         break;
                     case 4:
-                        notesS ns = new notesS();
-                        System.out.println("ID of the note that you want to delete: ");
-                        int in1 = scan.nextInt();
-                        ns.removeSNote(in1);
+                        
                         break;
                     case 5:
-                        notesS ns1 = new notesS();
-                        ns1.viewNotes();
+
                         break;
                     case 6:
-                        notesS np2 = new notesS();
-                        System.out.println("ID of the note that you want to download: ");
-                        int in2 = scan.nextInt();
-                        np2.downloadNotes(in2);
+                
                         break;
                     case 7:
-                        notesS ns3 = new notesS();
-                        ns3.rateNotes();
+
                         break;
                     case 8:
                         System.exit(0);
@@ -80,7 +86,7 @@ public class main {
                 prof.findUser(myObj.getUsername());
                 Scanner in = new Scanner ( System.in );
         
-                display_menu_professor();
+                display_menu();
                 switch ( in.nextInt() ) {
                     case 1:
                         ContactP cp = new ContactP();
