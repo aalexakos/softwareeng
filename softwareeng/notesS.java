@@ -1,5 +1,6 @@
 package softwareeng;
 
+import java.util.*; 
 import java.util.Scanner;
 
 public class notesS extends Notes{
@@ -17,7 +18,10 @@ public class notesS extends Notes{
         }
     }
 
-    public void removeSNote(int id){
+    public void removeSNote(){
+        System.out.println("Poia simeiwsi theleis na diagrapseis? ");
+        Scanner scan = new Scanner(System.in);
+        int id=scan.nextInt();
         for(int i=0; i<notesList.size(); i++){
             //removing notes only if the student is the uploader
             if (notesList.get(i).noteId==id && uploader.equals(login.username)){
