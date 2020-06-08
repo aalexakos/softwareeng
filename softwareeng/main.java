@@ -24,12 +24,17 @@ public class main {
     }
 
     public static void display_calendar_s(){
-        System.out.println ( "1) Provoli events \n2) Diagrafi event \n" );
+        System.out.println ( "1) Provoli events \n2) Diagrafi event \n3) Dimiourgia event\n" );
+        System.out.print ( "Epilogh?: \n" );
+    }
+
+    public static void display_calendar_p(){
+        System.out.println ( "1) Provoli events \n2) Diagrafi event \n3) Dimiourgia event\n4) Dimiourgia deadline\n" );
         System.out.print ( "Epilogh?: \n" );
     }
 
     public static void display_notes_p(){
-        System.out.println ( "1) Anevase simeiwsi\n2) Diegrapse simeiwsi\n3) Provoli simeiwsis");
+        System.out.println ( "1) Anevase simeiwsi\n2) Diegrapse simeiwsi\n3) Provoli simeiwsis\n");
         System.out.print ( "Epilogh?: " );
     }
 
@@ -43,13 +48,8 @@ public class main {
         System.out.print ( "Epilogh?: \n" );
     }
 
-    public static void display_calendar_p(){
-        System.out.println ( "1) Dimiourgia deadline \n2) Provoli event \n3) Diagrafi Eventn\n" );
-        System.out.print ( "Epilogh?: \n" );
-    }
-
     public static void display_menu(){
-        System.out.println ( "1) Simeiwseis \n2) Epikoinwnia \n3) Anakoinwseis \n4) Polumesa \n5) Hmerologio \n6) Exit" );
+        System.out.println ( "1) Simeiwseis \n2) Epikoinwnia \n3) Anakoinwseis \n4) Polumesa \n5) Hmerologio \n6) Exit\n" );
         System.out.print ( "Epilogh?: \n" );
     }
 
@@ -106,10 +106,9 @@ public class main {
                         }
                         break;
                     case 3:
-                        
                         P_Announcements p4 = new P_Announcements();
                         p4.printInfo();
-                        
+                        break;
                     case 4:
                         display_multimedia_s();
                         S_Multimedia sm1 = new S_Multimedia();
@@ -122,11 +121,25 @@ public class main {
                                 sm1.chooseVid();
                                 break;
                         }
-                        break;
                     case 5:
-                        display_multimedia_s();
-                        //S_Multimedia sm1 = new S_Multimedia();
-                        break;
+                        display_calendar_s();
+                        switch ( in.nextInt() ) {
+                            case 1:     
+                                S_Calendar sc = new S_Calendar();
+                                sc.printEvent();
+                                break;
+                            case 2:
+                                S_Calendar sc1 = new S_Calendar();
+                                Scanner cal = new Scanner(System.in);
+                                System.out.println("eisagete to id tou event pou thelete na diagrapsete: ");
+                                int cal1 = scan.nextInt();
+                                sc1.delEvent(cal1);
+                                break;
+                            case 3:
+                                S_Calendar sc2 = new S_Calendar();
+                                sc2.createEvent();
+                                break;
+                        }
                     case 6:
                         System.exit(0);
                         break;
@@ -223,34 +236,28 @@ public class main {
                                 m5.offline();                       
                             break;
                         
-                    }
-                    
-                
+                    }                
                     case 5:
                         display_calendar_p();
-                        switch ( in.nextInt() ) {                       
-                            case 1: 
-                                System.out.println("Parakalw eisagete tin imera\n");
-                                Scanner imera = new Scanner(System.in);
-                                int im =imera.nextInt();
-                                System.out.println("Parakalw eisagete ton mina\n");
-                                Scanner minas = new Scanner(System.in);
-                                int min =minas.nextInt();
-                                System.out.println("Parakalw eisagete to etos\n");
-                                Scanner etos = new Scanner(System.in);
-                                int et =etos.nextInt();
-                                P_Calendar pc1 = new P_Calendar();
-                                pc1.makeDeadline(im, min, et);
-                                //pc1.printInfo();
+                        switch ( in.nextInt() ) {
+                            case 1:     
+                                P_Calendar pc = new P_Calendar();
+                                pc.printEvent();
+                                break;
                             case 2:
-                                
-                                break;   
+                                P_Calendar pc1 = new P_Calendar();
+                                Scanner cal = new Scanner(System.in);
+                                System.out.println("eisagete to id tou event pou thelete na diagrapsete: ");
+                                int cal1 = scan.nextInt();
+                                pc1.delEvent(cal1);
+                                break;
                             case 3:
-                               
+                                P_Calendar pc2 = new P_Calendar();
+                                pc2.createEvent();
                                 break;
                             case 4:
-                                                    
-                                break;
+                                P_Calendar pc3 = new P_Calendar();
+                                pc3.makeDeadline();
                         }
                     
                     case 6:

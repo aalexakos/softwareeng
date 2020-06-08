@@ -1,63 +1,64 @@
 package softwareeng;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class P_Calendar extends Calendar {
 
-    public int year;
-
-    public void newEvent(){
-        Calendar event1 = new Calendar();   //make events
-        event1.setMonth(month);
-        event1.setYear(year);
-        event1.setDay(day);
     
+
+
+    private ArrayList<Calendar> cp = new ArrayList<Calendar>();
+
+    public void printEvent(){
+        for (int i=0; i<cp.size(); i++){
+           System.out.println(cp.get(i).getId() + "-" + cp.get(i).getDay()+ "-" + cp.get(i).getMonth() + "-" + cp.get(i).getYear());
+        }
     }
 
-    public void printInfo(){
-        System.out.println(getDay() + "-" + getMonth() + "-" + getYear());
+    public void createEvent(){
+        System.out.println("Dwse hmera tou event: ");
+        Scanner an = new Scanner(System.in);
+        int day = an.nextInt(); 
+        System.out.println("Dwse mhna tou event: ");
+        Scanner an1 = new Scanner(System.in);
+        int month = an.nextInt(); 
+        System.out.println("Dwse xrono tou event: ");
+        Scanner an2 = new Scanner(System.in);
+        int year = an.nextInt(); 
+        Calendar ca1 = new Calendar();
+        ca1.setDay(day);
+        ca1.setMonth(month);
+        ca1.setYear(year);
+        cp.add(ca1);
+    }
+    
+    public void delEvent(int id){
+        for (int i=0; i<cp.size(); i++){
+            if (cp.get(i).getId()==id){
+                cp.remove(i);
+            }
+        }
     }
 
-    public void delEvent(Calendar e){
-        e = null;
-    }
-    public void makeDeadline(int ye, int mo, int da){
-        setDay(mo);
-        setYear(ye);
-        setDay(da);
-        System.out.println("To dead line dimiourgithike tin imerominia:" + da + "//" + mo +"//"+ "//"+ye );
-    }
+    public void makeDeadline(){
 
-
-
-/*
-    public void makeDeadline(int year, int month, int day){
-
-        System.out.println("Parakalw dwse to ID tou imerologiou");
-        Scanner ii = new Scanner(System.in);
-        int idd = ii.nextInt();
         System.out.println("Tin imerominia tou deadline");
         Scanner yearr = new Scanner(System.in);
-        var ye = yearr.nextLine();
+        int ye = yearr.nextInt();
         Scanner monthh = new Scanner(System.in);
-        var mo = monthh.nextLine();
+        int mo = monthh.nextInt();
         Scanner dayy = new Scanner(System.in);
-        var da = dayy.nextLine();
-        year = Integer.parseInt(ye);
-        month = Integer.parseInt(mo);  
-        day = Integer.parseInt(da);
+        int da = dayy.nextInt();
         dayy.close();
         yearr.close();
-        ii.close();
         monthh.close();
+        Calendar ca = new Calendar();
+        ca.setDay(day);
+        ca.setMonth(month);
+        ca.setYear(year);
+        cp.add(ca);
         System.out.println("To deadline sas oristike epitixws");
     }
 
-*/
-
-
-
-
-
-    
 }
